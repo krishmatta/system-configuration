@@ -11,4 +11,4 @@
 
 (set-face-attribute 'default nil :font "Hack" :height 150) ; Set font
 
-(load-theme 'grayscale t)
+(load-theme 'grayscale t) ; Set theme
