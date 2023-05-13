@@ -47,3 +47,10 @@
   (marginalia-mode))
 (setq marginalia-annotator-registry
   (assq-delete-all 'file marginalia-annotator-registry))
+
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package doom-modeline
+  :init
+  (doom-modeline-mode 1))
