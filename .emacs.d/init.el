@@ -28,3 +28,16 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
+
+(use-package vertico
+  :bind (:map vertico-map
+	 ("C-j" . vertico-next)
+	 ("C-k" . vertico-previous))
+  :custom
+  (vertico-cycle t)
+  :init
+  (vertico-mode))
+
+(use-package savehist
+  :init
+  (savehist-mode))
