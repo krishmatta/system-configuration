@@ -9,6 +9,8 @@
 
 (set-fringe-mode 10) ; Add margins
 
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; Enable escape for quit
+
 (set-face-attribute 'default nil :font "Iosevka" :height 150) ; Set font
 
 (load-theme 'grayscale t) ; Set theme
