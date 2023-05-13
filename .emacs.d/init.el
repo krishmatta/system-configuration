@@ -41,3 +41,9 @@
 (use-package savehist
   :init
   (savehist-mode))
+
+(use-package marginalia
+  :init
+  (marginalia-mode))
+(setq marginalia-annotator-registry
+  (assq-delete-all 'file marginalia-annotator-registry))
