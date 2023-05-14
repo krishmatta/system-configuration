@@ -56,3 +56,8 @@
 (use-package doom-modeline
   :init
   (doom-modeline-mode 1))
+
+; Line numbers
+(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-current-absolute t)
+(global-display-line-numbers-mode)
