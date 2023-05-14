@@ -61,3 +61,4 @@
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
 (global-display-line-numbers-mode)
+(column-number-mode)
