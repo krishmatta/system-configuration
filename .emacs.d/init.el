@@ -11,6 +11,8 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; Enable escape for quit
 
+(setq auto-save-default nil) ; Disable auto-save
+
 (set-face-attribute 'default nil :font "Iosevka" :height 150) ; Set font
 
 (load-theme 'grayscale t) ; Set theme
