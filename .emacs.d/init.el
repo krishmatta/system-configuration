@@ -57,6 +57,9 @@
   :init
   (doom-modeline-mode 1))
 
+(use-package ox-hugo
+  :after ox)
+
 ; Line numbers
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
