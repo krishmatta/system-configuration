@@ -65,3 +65,6 @@
 (setq display-line-numbers-current-absolute t)
 (global-display-line-numbers-mode)
 (column-number-mode)
+
+(dolist (mode '(eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
