@@ -60,6 +60,12 @@
 (use-package ox-hugo
   :after ox)
 
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.3))
+
 ; Line numbers
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
