@@ -72,5 +72,6 @@
 (global-display-line-numbers-mode)
 (column-number-mode)
 
-(dolist (mode '(eshell-mode-hook))
+(dolist (mode '(eshell-mode-hook
+		term-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
