@@ -73,9 +73,16 @@
 			  :prefix "SPC"
 			  :global-prefix "C-SPC"))
 
+(setq evil-want-keybinding nil)
+
 (use-package evil
   :init
   (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 ; Line numbers
 (setq display-line-numbers-type 'relative)
