@@ -17,6 +17,8 @@
 
 (load-theme 'grayscale t) ; Set theme
 
+(setq make-backup-files nil) ; Disable backup files
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org" . "https://orgmode.org/elpa/")
