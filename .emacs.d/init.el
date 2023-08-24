@@ -21,7 +21,6 @@
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
 			 ("elpa" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 (unless package-archive-contents
@@ -102,10 +101,41 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(evil general amx which-key vertico use-package ox-hugo marginalia doom-modeline all-the-icons)))
+   '(compat bind-key transient tomelr s dash f shrink-path org org-edna org-agenda-property org-gtd nerd-icons goto-chg annalist evil-collection evil general amx which-key vertico use-package ox-hugo marginalia doom-modeline all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; GTD Setup
+(setq org-capture-templates '(("t" "Inbox" entry (file+headline "~/org/todo/inbox.org" "Inbox") "* TODO %i%?")))
+(setq org-agenda-files '("~/org/todo/next.org" "~/org/todo/projects.org" "~/org/todo/calendar.org" "~/org/todo/reminders.org"))
+
+(defvar org-refile-targets-original (if (boundp 'org-refile-targets)
+					org-refile-targets
+				      nil))
+
+(defun set-refile-target-todo ()
+  (if (and buffer-file-name
+	     (string-prefix-p (expand-file-name "~/org/todo/") buffer-file-name))
+    (setq org-refile-targets
+	  '(("~/org/todo/next.org" :level . 1)
+	    ("~/org/todo/projects.org" :maxlevel . 3)
+            ("~/org/todo/delegated.org" :level . 1)
+            ("~/org/todo/reminders.org" :level . 1)
+            ("~/org/todo/calendar.org" :level . 1)
+            ("~/org/todo/potential.org" :level . 1)))
+    (setq org-refile-targets org-refile-targets-original)))
+  
+
+(add-hook 'post-command-hook 'set-refile-target-todo)
+
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(defun find-todo ()
+  (interactive)
+  (let ((default-directory "~/org/todo/"))
+    (call-interactively 'find-file)))
+(global-set-key (kbd "C-c t") 'find-todo)
