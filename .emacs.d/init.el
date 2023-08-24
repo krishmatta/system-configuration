@@ -139,3 +139,15 @@
   (let ((default-directory "~/org/todo/"))
     (call-interactively 'find-file)))
 (global-set-key (kbd "C-c t") 'find-todo)
+
+;; Evil keybindings
+(defun evil-keyboard-quit ()
+  (interactive)
+  (and evil-mode (evil-force-normal-state))
+  (keyboard-quit))
+
+(define-key evil-normal-state-map (kbd "C-g") 'evil-keyboard-quit)
+(define-key evil-motion-state-map (kbd "C-g") 'evil-keyboard-quit)
+(define-key evil-insert-state-map (kbd "C-g") 'evil-keyboard-quit)
+(define-key evil-window-map (kbd "C-g") 'evil-keyboard-quit)
+(define-key evil-operator-state-map (kbd "C-g") 'evil-keyboard-quit)
