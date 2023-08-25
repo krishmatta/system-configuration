@@ -156,10 +156,38 @@
 (define-key evil-window-map (kbd "C-g") 'evil-keyboard-quit)
 (define-key evil-operator-state-map (kbd "C-g") 'evil-keyboard-quit)
 
-(define-key org-agenda-mode-map "j" 'evil-next-line)
-(define-key org-agenda-mode-map "k" 'evil-previous-line)
+(with-eval-after-load 'org-agenda
+  (define-key org-agenda-mode-map "j" 'evil-next-line)
+  (define-key org-agenda-mode-map "k" 'evil-previous-line))
 
 ; Roam keybindings
 (global-set-key (kbd "C-c n l") 'org-roam-buffer-toggle)
 (global-set-key (kbd "C-c n f") 'org-roam-node-find)
 (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
+
+; Notes
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+	       '("notes"
+		 "\\documentclass{report}"
+                 ("\\chapter{%s}" . "\\chapter*{%s}")
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(defun org-latex-ref-to-cref (text backend info)
+  (when (org-export-derived-backend-p backend 'latex)
+    (replace-regexp-in-string "\\\\ref{" "\\\\Cref{" text)))
+
+(with-eval-after-load 'ox
+  (add-to-list 'org-export-filter-final-output-functions
+	       'org-latex-ref-to-cref))
+
+(with-eval-after-load 'org-roam
+  (add-to-list 'org-roam-capture-templates
+	       '("n" "notes" plain (file "~/org/templates/notes.org")
+		:target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+				   "#+title: ${title}\n")
+		:unnarrowed t)))
