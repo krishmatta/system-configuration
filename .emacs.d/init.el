@@ -191,3 +191,38 @@
 		:target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
 				   "#+title: ${title}\n")
 		:unnarrowed t)))
+
+(defun get-org-buffer-title ()
+  (cadar (org-collect-keywords '("TITLE"))))
+
+(defun process-title (title)
+  (if title
+      (concat
+       (replace-regexp-in-string " " "-" (downcase title))
+       ".org")
+    ""))
+
+(defun process-post (src dst)
+  (with-temp-buffer
+    (insert-file-contents src)
+    (goto-char (point-min))
+    (insert-file-contents "~/org/templates/post.org")
+    (write-file dst))
+  (shell-command (concat "sed -i '' -E '/^:/ d' " dst)))
+
+(defun publish-note ()
+  (interactive)
+  (if (and buffer-file-name
+	     (string-prefix-p (expand-file-name org-roam-directory) buffer-file-name))
+      (let* ((file-name (process-title (get-org-buffer-title)))
+	    (post-name (read-string
+			"Enter the post file name: "
+			file-name nil file-name nil))
+	    (publish-dir "~/Projects/krishxmatta.dev")
+	    (content-org-file (concat publish-dir (concat "/content-org/posts/" post-name))))
+	(process-post buffer-file-name content-org-file)
+	(find-file content-org-file))
+    (message "Not in an org-roam file.")))
+
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c p") 'publish-note))
