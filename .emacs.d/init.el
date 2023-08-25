@@ -67,12 +67,7 @@
   :config
   (setq which-key-idle-delay 0.3))
 
-(use-package general
-  :config
-  (general-create-definer krishxmatta/leader-keys
-			  :keymaps '(normal insert visual emacs)
-			  :prefix "SPC"
-			  :global-prefix "C-SPC"))
+(use-package general)
 
 (setq evil-want-keybinding nil)
 
