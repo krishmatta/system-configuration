@@ -85,6 +85,10 @@
   :config
   (evil-collection-init))
 
+(use-package org-roam
+  :config
+  (setq org-roam-directory "~/org/roam"))
+
 ; Line numbers
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
@@ -101,7 +105,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(compat bind-key transient tomelr s dash f shrink-path org org-edna org-agenda-property org-gtd nerd-icons goto-chg annalist evil-collection evil general amx which-key vertico use-package ox-hugo marginalia doom-modeline all-the-icons)))
+   '(org-roam compat bind-key transient tomelr s dash f shrink-path org org-edna org-agenda-property org-gtd nerd-icons goto-chg annalist evil-collection evil general amx which-key vertico use-package ox-hugo marginalia doom-modeline all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -154,3 +158,8 @@
 
 (define-key org-agenda-mode-map "j" 'evil-next-line)
 (define-key org-agenda-mode-map "k" 'evil-previous-line)
+
+; Roam keybindings
+(global-set-key (kbd "C-c n l") 'org-roam-buffer-toggle)
+(global-set-key (kbd "C-c n f") 'org-roam-node-find)
+(global-set-key (kbd "C-c n i") 'org-roam-node-insert)
