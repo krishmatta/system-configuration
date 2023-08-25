@@ -151,3 +151,6 @@
 (define-key evil-insert-state-map (kbd "C-g") 'evil-keyboard-quit)
 (define-key evil-window-map (kbd "C-g") 'evil-keyboard-quit)
 (define-key evil-operator-state-map (kbd "C-g") 'evil-keyboard-quit)
+
+(define-key org-agenda-mode-map "j" 'evil-next-line)
+(define-key org-agenda-mode-map "k" 'evil-previous-line)
