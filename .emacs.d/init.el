@@ -19,6 +19,11 @@
 
 (setq make-backup-files nil) ; Disable backup files
 
+(add-hook 'after-change-major-mode-hook
+          #'(lambda ()
+             (setq-default indent-tabs-mode nil)
+             (setq tab-width 3)))
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("elpa" . "https://elpa.gnu.org/packages/")))
@@ -139,6 +144,14 @@
     (call-interactively 'find-file)))
 (global-set-key (kbd "C-c t") 'find-todo)
 
+(defun agenda-todos ()
+  (interactive)
+  (let ((org-agenda-files '("~/org/todo/next.org"
+                            "~/org/todo/projects.org")))
+    (org-todo-list)))
+
+(global-set-key (kbd "C-c C-a t") 'agenda-todos)
+
 ;; Evil keybindings
 (defun evil-keyboard-quit ()
   (interactive)
@@ -180,12 +193,25 @@
   (add-to-list 'org-export-filter-final-output-functions
 	       'org-latex-ref-to-cref))
 
-(with-eval-after-load 'org-roam
-  (add-to-list 'org-roam-capture-templates
-	       '("n" "notes" plain (file "~/org/templates/notes.org")
-		:target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-				   "#+title: ${title}\n")
-		:unnarrowed t)))
+(setq org-roam-capture-templates
+      '(("m" "main" plain
+         "%?"
+         :target (file+head "main/${slug}.org"
+                            "#+title: ${title}\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("r" "reference" plain
+         "%?"
+         :target (file+head "reference/${slug}.org"
+                            "#+title: ${title}\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("a" "article" plain
+         (file "~/org/templates/notes.org")
+         :target (file+head "reference/${slug}.org"
+                            "#+title: ${title}\n")
+         :immediate-finish t
+         :unnarrowed t)))
 
 (defun get-org-buffer-title ()
   (cadar (org-collect-keywords '("TITLE"))))
