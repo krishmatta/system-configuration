@@ -193,3 +193,8 @@
                             "#+title: ${title}\n")
          :immediate-finish t
          :unnarrowed t)))
+
+(defun krishxmatta/org-roam-tag-new-node-as-draft ()
+  (org-roam-tag-add '("draft")))
+
+(add-hook 'org-roam-capture-new-node-hook #'krishxmatta/org-roam-tag-new-node-as-draft)
