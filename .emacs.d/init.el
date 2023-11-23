@@ -198,3 +198,7 @@
   (org-roam-tag-add '("draft")))
 
 (add-hook 'org-roam-capture-new-node-hook #'krishxmatta/org-roam-tag-new-node-as-draft)
+
+(setq org-roam-node-display-template ; Enable search by tag
+      (concat "${title} "
+              (propertize "${tags}" 'face 'org-tag)))
