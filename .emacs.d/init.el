@@ -115,7 +115,7 @@
 
 ;; GTD Setup
 (setq org-capture-templates '(("t" "Inbox" entry (file+headline "~/org/todo/inbox.org" "Inbox") "* TODO %i%?")))
-(setq org-agenda-files '("~/org/todo/next.org" "~/org/todo/projects.org" "~/org/todo/calendar.org" "~/org/todo/reminders.org"))
+(setq org-agenda-files '("~/org/todo"))
 
 (defvar org-refile-targets-original (if (boundp 'org-refile-targets)
 					org-refile-targets
