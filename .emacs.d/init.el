@@ -89,6 +89,11 @@
   :config
   (setq org-roam-directory "~/org/roam"))
 
+(use-package org-download
+  :after org
+  :config
+  (org-download-enable))
+
 ; Line numbers
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
