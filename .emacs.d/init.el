@@ -142,7 +142,8 @@
 
 (use-package org-roam
   :config
-  (setq org-roam-directory "~/org/roam"))
+  (setq org-roam-directory "~/org/roam")
+  (org-roam-db-autosync-mode))
 
 ;; Easy image manipulation
 (use-package org-download
