@@ -215,6 +215,11 @@
 (setq org-roam-node-display-template
       (concat "${title} " (propertize "${tags}" 'face 'org-tag)))
 
+;;;; Reading list setup
+(setq org-capture-templates (append org-capture-templates
+				    '(("r" "Reading List" entry (file "~/org/reading-list.org")
+				       "* TOREAD %?\n:PROPERTIES:\n:AUTHOR: \n:END:"))))
+
 ;;; Customize interface
 (custom-set-variables
  '(package-selected-packages
