@@ -175,6 +175,17 @@
 (add-hook 'post-command-hook 'krishxmatta/set-refile-target-todo)
 
 ;;;; Note-taking Setup
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+	       '("notes"
+		 "\\documentclass{report}"
+                 ("\\chapter{%s}" . "\\chapter*{%s}")
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
 (setq org-roam-capture-templates
       '(("m" "main" plain
          "%?"
