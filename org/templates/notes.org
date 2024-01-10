@@ -1,0 +1,21 @@
+#+AUTHOR: Krish Matta
+:LATEX:
+#+LATEX_CLASS: notes
+#+LATEX_HEADER: \usepackage{amsthm}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{amsfonts}
+#+LATEX_HEADER: \usepackage{tocloft}
+#+LATEX_HEADER: \usepackage{ragged2e}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \usepackage{cleveref}
+#+LATEX_HEADER: \newtheorem{thm}{Theorem}[chapter]
+#+LATEX_HEADER: \newtheorem{cor}{Corollary}[thm]
+#+LATEX_HEADER: \newtheorem{lma}[thm]{Lemma}
+#+LATEX_HEADER: \theoremstyle{definition}
+#+LATEX_HEADER: \newtheorem{dfn}{Definition}[chapter]
+#+LATEX_HEADER: \newtheorem{ex}{Example}[chapter]
+#+LATEX_HEADER: \theoremstyle{remark}
+#+LATEX_HEADER: \newtheorem*{rmk}{Remark}
+#+LATEX_HEADER: \newtheorem{exc}{Exercise}[section]
+#+LATEX_HEADER: \newtheorem{sol}{Solution}[exc]
+:END:
