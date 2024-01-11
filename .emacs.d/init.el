@@ -206,8 +206,11 @@
          :immediate-finish t
          :unnarrowed t)))
 
+(setq krishxmatta/org-roam-draft-dirs '("/Users/krishxmatta/org/roam/reference/" "/Users/krishxmatta/org/roam/articles/"))
+
 (defun krishxmatta/org-roam-tag-new-node-as-draft ()
-  (org-roam-tag-add '("draft")))
+  (if (member (file-name-directory buffer-file-name) krishxmatta/org-roam-draft-dirs)
+      (org-roam-tag-add '("draft"))))
 
 (add-hook 'org-roam-capture-new-node-hook #'krishxmatta/org-roam-tag-new-node-as-draft)
 
