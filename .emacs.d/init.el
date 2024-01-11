@@ -194,13 +194,13 @@
          :immediate-finish t
          :unnarrowed t)
         ("r" "reference" plain
-         "%?"
+         (file "~/org/templates/notes.org")
          :target (file+head "reference/${slug}.org"
                             "#+title: ${title}\n")
          :immediate-finish t
          :unnarrowed t)
         ("a" "article" plain
-         (file "~/org/templates/notes.org")
+         "%?"
          :target (file+head "articles/${slug}.org"
                             "#+title: ${title}\n")
          :immediate-finish t
