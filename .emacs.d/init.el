@@ -68,10 +68,10 @@
 (use-package ewal
   :init (setq ewal-use-built-in-always-p nil))
 
-(use-package ewal-spacemacs-themes
+(use-package ewal-doom-themes
   :config (progn
-            (load-theme 'ewal-spacemacs-modern t)
-            (enable-theme 'ewal-spacemacs-modern)))
+            (load-theme 'ewal-doom-one t)
+            (enable-theme 'ewal-doom-one)))
 
 (use-package all-the-icons
   :if (display-graphic-p))
