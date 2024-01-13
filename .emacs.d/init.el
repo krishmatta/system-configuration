@@ -76,7 +76,7 @@
 (use-package ewal-evil-cursors
   :after (ewal-doom-themes)
   :config (ewal-evil-cursors-get-colors
-           :apply t :spaceline t))
+	   :apply t :spaceline t))
 
 (use-package all-the-icons
   :if (display-graphic-p))
