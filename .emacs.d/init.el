@@ -68,10 +68,15 @@
 (use-package ewal
   :init (setq ewal-use-built-in-always-p nil))
 
-(use-package ewal-spacemacs-themes
+(use-package ewal-doom-themes
   :config (progn
-            (load-theme 'ewal-spacemacs-modern t)
-            (enable-theme 'ewal-spacemacs-modern)))
+            (load-theme 'ewal-doom-one t)
+            (enable-theme 'ewal-doom-one)))
+
+(use-package ewal-evil-cursors
+  :after (ewal-doom-themes)
+  :config (ewal-evil-cursors-get-colors
+           :apply t :spaceline t))
 
 (use-package all-the-icons
   :if (display-graphic-p))
@@ -236,7 +241,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
+   '(ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
