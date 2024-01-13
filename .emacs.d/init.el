@@ -13,8 +13,6 @@
 ;; Set font
 (set-face-attribute 'default nil :font "Iosevka" :height 150)
 
-(load-theme 'grayscale t)               ; Set theme
-
 ;;; Remove Unnecessary Files
 (setq auto-save-default nil)            ; Disable auto-save
 (setq make-backup-files nil)            ; Disable backup files
@@ -67,6 +65,14 @@
   (assq-delete-all 'file marginalia-annotator-registry))
 
 ;;; UI
+(use-package ewal
+  :init (setq ewal-use-built-in-always-p nil))
+
+(use-package ewal-spacemacs-themes
+  :config (progn
+            (load-theme 'ewal-spacemacs-modern t)
+            (enable-theme 'ewal-spacemacs-modern)))
+
 (use-package all-the-icons
   :if (display-graphic-p))
 
@@ -225,6 +231,15 @@
 
 ;;; Customize interface
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
-(custom-set-faces)
+   '(ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
