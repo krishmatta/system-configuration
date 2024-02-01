@@ -186,6 +186,8 @@
 (add-hook 'post-command-hook 'krishxmatta/set-refile-target-todo)
 
 ;;;; Note-taking Setup
+(setq org-preview-latex-default-process 'dvisvgm)
+
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
 	       '("notes"
