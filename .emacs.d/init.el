@@ -78,8 +78,7 @@
   :config (ewal-evil-cursors-get-colors
 	   :apply t :spaceline t))
 
-(use-package all-the-icons
-  :if (display-graphic-p))
+(use-package nerd-icons)
 
 (use-package doom-modeline
   :init
