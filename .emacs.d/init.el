@@ -235,6 +235,13 @@
 				    '(("r" "Reading List" entry (file "~/org/reading-list.org")
 				       "* TOREAD %?\n:PROPERTIES:\n:AUTHOR: \n:END:"))))
 
+;;; Feed reader
+(use-package elfeed
+  :bind (("C-x w" . elfeed)))
+
+(setq elfeed-feeds
+      '("https://www.youtube.com/feeds/videos.xml?channel_id=UCP40_9XpPtmDPvGTlEEoGcw"))
+
 ;;; Customize interface
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -242,7 +249,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
+   '(elfeed ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
