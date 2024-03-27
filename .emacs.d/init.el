@@ -240,7 +240,8 @@
   :bind (("C-x w" . elfeed)))
 
 (setq elfeed-feeds
-      '("https://www.youtube.com/feeds/videos.xml?channel_id=UCP40_9XpPtmDPvGTlEEoGcw"))
+      '("https://www.youtube.com/feeds/videos.xml?channel_id=UCP40_9XpPtmDPvGTlEEoGcw"
+	"https://www.to-rss.xyz/wikipedia/current_events/"))
 
 ;;; Customize interface
 (custom-set-variables
