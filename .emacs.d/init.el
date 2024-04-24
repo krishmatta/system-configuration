@@ -155,6 +155,17 @@
   (setq org-roam-directory "~/org/roam")
   (org-roam-db-autosync-mode))
 
+(use-package websocket
+  :after org-roam)
+
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-sync-theme t
+	org-roam-ui-follow t
+	org-roam-ui-update-on-save t
+	org-roam-ui-open-on-start t))
+
 ;; Easy image manipulation
 (use-package org-download
   :after org
@@ -250,7 +261,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(elfeed ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
+   '(org-roam-ui websocket elfeed ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
