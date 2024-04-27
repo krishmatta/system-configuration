@@ -215,13 +215,13 @@
       '(("m" "main" plain
          "%?"
          :target (file+head "main/${slug}.org"
-                            "#+title: ${title}\n#+date: %t\n#+hugo_section: notes\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: main\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
          :immediate-finish t
          :unnarrowed t)
         ("r" "reference" plain
          (file "~/org/templates/notes.org")
          :target (file+head "reference/${slug}.org"
-                            "#+title: ${title}\n#+date: %t\n#+hugo_section: notes\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: reference\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
          :immediate-finish t
          :unnarrowed t)
         ("a" "article" plain
