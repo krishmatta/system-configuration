@@ -225,7 +225,7 @@
         ("a" "article" plain
          "%?"
          :target (file+head "articles/${slug}.org"
-                            "#+title: ${title}\n#+date: %t\n#+hugo_section: articles\n#+hugo_lastmod: %u\n#+hugo_tags: noexport\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: articles\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
          :immediate-finish t
          :unnarrowed t)))
 
