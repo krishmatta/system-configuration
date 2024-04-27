@@ -148,7 +148,9 @@
 
 ;;; Org Mode
 (use-package ox-hugo
-  :after ox)
+  :after ox
+  :config
+  (setq org-hugo-front-matter-format "yaml"))
 
 (use-package org-roam
   :config
