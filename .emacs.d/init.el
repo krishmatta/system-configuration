@@ -148,9 +148,7 @@
 
 ;;; Org Mode
 (use-package ox-hugo
-  :after ox
-  :config
-  (setq org-hugo-front-matter-format "yaml"))
+  :after ox)
 
 (use-package org-roam
   :config
@@ -215,19 +213,19 @@
       '(("m" "main" plain
          "%?"
          :target (file+head "main/${slug}.org"
-                            "#+title: ${title}\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: notes\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
          :immediate-finish t
          :unnarrowed t)
         ("r" "reference" plain
          (file "~/org/templates/notes.org")
          :target (file+head "reference/${slug}.org"
-                            "#+title: ${title}\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: notes\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
          :immediate-finish t
          :unnarrowed t)
         ("a" "article" plain
          "%?"
          :target (file+head "articles/${slug}.org"
-                            "#+title: ${title}\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: articles\n#+hugo_lastmod: %u\n#+hugo_tags: noexport\n")
          :immediate-finish t
          :unnarrowed t)))
 
@@ -238,6 +236,13 @@
       (org-roam-tag-add '("draft"))))
 
 (add-hook 'org-roam-capture-new-node-hook #'krishxmatta/org-roam-tag-new-node-as-draft)
+
+;; Automatically update last modified date in ox-hugo export (TODO: could be moved elsewhere)
+(setq time-stamp-active t
+	time-stamp-start "#\\+hugo_lastmod:[ \t]*"
+	time-stamp-end "$"
+	time-stamp-format "\[%Y-%m-%d\]")
+(add-hook 'before-save-hook 'time-stamp)
 
 ;; Enable search by tag
 (setq org-roam-node-display-template
