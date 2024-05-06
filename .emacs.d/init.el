@@ -90,7 +90,7 @@
 (global-display-line-numbers-mode)
 (column-number-mode)
 
-(dolist (mode '(pdf-view-mode eshell-mode-hook term-mode-hook)) (add-hook mode (lambda () (display-line-numbers-mode 0))))
+(dolist (mode '(pdf-view-mode-hook eshell-mode-hook term-mode-hook)) (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;;; Keybinds
 ;; Enable escape for quit
