@@ -149,7 +149,11 @@
 ;;; PDF Viewing
 (use-package pdf-tools
   :config
-  (setq pdf-view-midnight-colors '("#d0d0d0" . "#1c1c1c")))
+  (setq pdf-view-midnight-colors (cons (face-foreground 'default) (face-background 'default)))
+  (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
+  (add-hook 'pdf-view-mode-hook (lambda () (setq-local evil-normal-state-cursor (list nil)))))
+
+(pdf-tools-install)
 
 ;;; Org Mode
 (use-package ox-hugo
