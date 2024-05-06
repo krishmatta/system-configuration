@@ -146,6 +146,11 @@
 (global-set-key (kbd "C-c n f") 'org-roam-node-find)
 (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
 
+;;; PDF Viewing
+(use-package pdf-tools
+  :config
+  (setq pdf-view-midnight-colors '("#d0d0d0" . "#1c1c1c")))
+
 ;;; Org Mode
 (use-package ox-hugo
   :after ox
