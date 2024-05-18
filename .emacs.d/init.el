@@ -155,6 +155,10 @@
 
 (pdf-tools-install)
 
+(use-package pdf-view-restore
+  :config
+  (add-hook 'pdf-view-mode-hook 'pdf-view-restore-mode))
+
 ;;; Org Mode
 (use-package ox-hugo
   :after ox
@@ -279,7 +283,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-roam-ui websocket elfeed ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
+   '(quelpa pdf-continuous-scroll-mode pdf-view-restore org-roam-ui websocket elfeed ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
