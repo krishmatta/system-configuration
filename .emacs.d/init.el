@@ -200,12 +200,9 @@
   (if (and buffer-file-name
     (string-prefix-p (expand-file-name "~/org/todo/") buffer-file-name))
     (setq org-refile-targets
-      '(("~/org/todo/next.org" :level . 1)
-        ("~/org/todo/projects.org" :level . 1)
-        ("~/org/todo/delegated.org" :level . 1)
-        ("~/org/todo/reminders.org" :level . 1)
-        ("~/org/todo/calendar.org" :level . 1)
-	("~/org/todo/potential.org" :level . 1)))
+	'(("~/org/todo/inbox.org" :maxlevel . 9)
+	  ("~/org/todo/next.org" :maxlevel . 9)
+	  ("~/org/todo/potential.org" :maxlevel . 9)))
     (setq org-refile-targets krishxmatta/org-refile-targets-original)))
 
 (add-hook 'post-command-hook 'krishxmatta/set-refile-target-todo)
