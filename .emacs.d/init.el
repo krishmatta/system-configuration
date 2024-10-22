@@ -212,17 +212,6 @@
 ;;;; Note-taking Setup
 (setq org-preview-latex-default-process 'dvisvgm)
 
-(with-eval-after-load 'ox-latex
-  (add-to-list 'org-latex-classes
-	       '("notes"
-		 "\\documentclass{report}"
-                 ("\\chapter{%s}" . "\\chapter*{%s}")
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
 (setq org-roam-capture-templates
       '(("m" "main" plain
          "%?"
@@ -231,7 +220,7 @@
          :immediate-finish t
          :unnarrowed t)
         ("r" "reference" plain
-         (file "~/org/templates/notes.org")
+         "%?"
          :target (file+head "reference/${slug}.org"
                             "#+title: ${title}\n#+date: %t\n#+hugo_section: reference\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n")
          :immediate-finish t
