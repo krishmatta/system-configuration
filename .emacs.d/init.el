@@ -202,7 +202,9 @@
     (setq org-refile-targets
 	'(("~/org/todo/inbox.org" :maxlevel . 9)
 	  ("~/org/todo/next.org" :maxlevel . 9)
-	  ("~/org/todo/potential.org" :maxlevel . 9)))
+	  ("~/org/todo/potential.org" :maxlevel . 9)
+	  ("~/org/todo/calendar.org" :maxlevel . 9)
+	  ("~/org/todo/reminders.org" :maxlevel . 9)))
     (setq org-refile-targets krishxmatta/org-refile-targets-original)))
 
 (add-hook 'post-command-hook 'krishxmatta/set-refile-target-todo)
