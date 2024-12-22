@@ -165,6 +165,8 @@
   :config
   (setq org-hugo-front-matter-format "yaml"))
 
+(require 'org-tempo)
+
 (use-package org-roam
   :config
   (setq org-roam-directory "~/org/roam")
