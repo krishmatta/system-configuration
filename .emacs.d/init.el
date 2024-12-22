@@ -183,6 +183,12 @@
 	org-roam-ui-update-on-save t
 	org-roam-ui-open-on-start t))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+(setq org-confirm-babel-evaluate nil)
+(setq org-babel-python-command "python3")
+
 ;; Easy image manipulation
 (use-package org-download
   :after org
