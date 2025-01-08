@@ -272,6 +272,9 @@
       '("https://www.youtube.com/feeds/videos.xml?channel_id=UCP40_9XpPtmDPvGTlEEoGcw"
 	"https://www.to-rss.xyz/wikipedia/current_events/"))
 
+;;; Python notebook
+(use-package ein)
+
 ;;; Customize interface
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -279,7 +282,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(quelpa pdf-continuous-scroll-mode pdf-view-restore org-roam-ui websocket elfeed ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
+   '(ein-notebook ein quelpa pdf-continuous-scroll-mode pdf-view-restore org-roam-ui websocket elfeed ewal-evil-cursors ewal-spacemacs-themes ewal orderless which-key vertico use-package pdf-tools ox-hugo org-roam org-gtd org-download marginalia general evil-collection doom-modeline amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
