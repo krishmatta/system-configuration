@@ -224,19 +224,19 @@
       '(("m" "main" plain
          "%?"
          :target (file+head "main/${slug}.org"
-                            "#+title: ${title}\n#+date: %t\n#+hugo_section: main\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n#+latex_class: article\n#+latex_header: \usepackage{parskip}\n#+options: date:nil\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: main\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n#+latex_class: article\n#+latex_header: \\usepackage{parskip}\n#+options: date:nil\n")
          :immediate-finish t
          :unnarrowed t)
         ("r" "reference" plain
          "%?"
          :target (file+head "reference/${slug}.org"
-                            "#+title: ${title}\n#+date: %t\n#+hugo_section: reference\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n#+latex_class: article\n#+latex_header: \usepackage{parskip}\n#+options: date:nil\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: reference\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n#+latex_class: article\n#+latex_header: \\usepackage{parskip}\n#+options: date:nil\n")
          :immediate-finish t
          :unnarrowed t)
         ("a" "article" plain
          "%?"
          :target (file+head "articles/${slug}.org"
-                            "#+title: ${title}\n#+date: %t\n#+hugo_section: articles\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n#+latex_class: article\n#+latex_header: \usepackage{parskip}\n#+options: date:nil\n")
+                            "#+title: ${title}\n#+date: %t\n#+hugo_section: articles\n#+hugo_lastmod: %t\n#+hugo_tags: noexport\n#+latex_class: article\n#+latex_header: \\usepackage{parskip}\n#+options: date:nil\n")
          :immediate-finish t
          :unnarrowed t)))
 
